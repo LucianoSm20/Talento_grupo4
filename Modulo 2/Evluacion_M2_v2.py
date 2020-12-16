@@ -64,11 +64,15 @@ def inicio (lista_numeros_ingresados):
     
     num = int(input("Ingrese un numero de hasta 6 digitos: "))
 
-    lista_numeros_ingresados.append(num)
-    for i in lista_numeros_ingresados:
-        print("numero_69:", i)
-    numero_a_diccionario(num)
-    graficar(lista_numeros_ingresados)
+    if len(str(num)) > 6:
+        print("el numero excede el largo, intentalo de nuevo")
+        inicio(lista_numeros_ingresados)
+    else:
+        lista_numeros_ingresados.append(num)
+        for i in lista_numeros_ingresados:
+            print("numero_69:", i)
+        numero_a_diccionario(num)
+        graficar(lista_numeros_ingresados)
 
 
 print("bienvenidos")
