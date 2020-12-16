@@ -27,7 +27,7 @@ def numero_a_diccionario(numero):
         largo = (largo-1)
 
 
-def graficar():
+def graficar(lista_numeros_ingresados):
     contador = 11
     for i in range(0,12):
         #for j in range(0,6):
@@ -43,9 +43,34 @@ def graficar():
         print("")
     print(" 100.000   10.000   1.000     100      10        1")
 
+    consulta_fin(lista_numeros_ingresados)
+
+def consulta_fin(lista_numeros_ingresados):
+    consulta = str(input("¿Desea seguir jugando? S/N:"))    
+
+    if(consulta.lower() == 'salir' or consulta.lower() == 'n'):
+        for i in lista_numeros_ingresados:
+            print(i)
+        print('fin de la ejecucion')
+    elif( consulta.lower() == 's'):
+        inicio(lista_numeros_ingresados)
+    else:
+        print("respuesta invalida, vuelva a intentarlo")
+        consulta_fin(lista_numeros_ingresados)
+   
+
+
+def inicio (lista_numeros_ingresados):
+    
+    num = int(input("Ingrese un numero de hasta 6 digitos: "))
+
+    lista_numeros_ingresados.append(num)
+    for i in lista_numeros_ingresados:
+        print("numero_69:", i)
+    numero_a_diccionario(num)
+    graficar(lista_numeros_ingresados)
+
 
 print("bienvenidos")
-num = int(input("Ingrese un numero de hasta 6 digitos: "))
-numero_a_diccionario(num)
-graficar()
-print("fin")
+lista_numeros_ingresados = []
+inicio(lista_numeros_ingresados)
